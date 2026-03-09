@@ -10,7 +10,6 @@ public class Loja {
     }
 
     public Usuario getDono(){
-
         return dono;
     }
 

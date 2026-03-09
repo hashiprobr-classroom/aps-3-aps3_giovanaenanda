@@ -13,8 +13,10 @@ public abstract class Comunidade {
     }
 
     public List<String> apelidosMembros(){
-        List<String> membros = new ArrayList<>();
-        return membros;
+        List<String> apelidos = new ArrayList<>();
+        for (Usuario u: membros){
+            apelidos.add(u.getApelido());
+        }
+        return apelidos;
     }
-
 }

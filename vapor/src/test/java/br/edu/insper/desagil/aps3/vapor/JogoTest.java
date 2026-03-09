@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JogoTest {
@@ -21,7 +23,25 @@ public class JogoTest {
 
     @Test
     void avaliaUmaVez(){
-        Jogo j = new Jogo(2, "Maria");
-        
+        j.avalia("João", 3);
+        assertTrue(j.avaliado("João"));
+        assertFalse(j.avaliado("Maria"));
+        assertEquals(3.0, j.media(), DELTA);
+    }
+    @Test
+    void avaliaDuasVezes(){
+        j.avalia("João", 3);
+        j.avalia("Maria", 4);
+
+        assertTrue(j.avaliado("João"));
+        assertTrue(j.avaliado("Maria"));
+        assertEquals(3.5, j.media(), DELTA);
+    }
+    @Test
+    void avaliaTresVezes(){
+        j.avalia("João", 3);
+        j.avalia("Maria", 4);
+        j.avalia("João", 5);
+        assertEquals(4.5, j.media(),DELTA);
     }
 }
